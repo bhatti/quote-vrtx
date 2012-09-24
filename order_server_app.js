@@ -5,8 +5,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////// 
 //
 load('helper.js');
-load('metrics.js');
-load('hardware.js');
+//load('metrics.js');
+//load('hardware.js');
 
 var plexobject = plexobject || {};
 
@@ -34,8 +34,10 @@ vertx.createHttpServer().websocketHandler(function(ws) {
 
 setInterval(function() {
    hardware.stop(function(usage) {
-     console.log('sockets, clients, ' + hardware.heading() + ',' + metrics.heading());
-     console.log(helper.size(socketsByAddr) + ',' + totalClients + ',' + usage.toString() + ',' + metrics.summary().toString());
+     //console.log('sockets, clients, ' + hardware.heading() + ',' + metrics.heading());
+     //console.log(helper.size(socketsByAddr) + ',' + totalClients + ',' + usage.toString() + ',' + metrics.summary().toString());
+     console.log('sockets, clients,');
+     console.log(helper.size(socketsByAddr) + ',' + plexobject.totalClients);
    });
 }, 15000);
 
